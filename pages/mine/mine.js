@@ -7,6 +7,14 @@ Page({
    */
   data: {
     userInfo: {},
+    // 认证相关
+    identification: 0, /*0：玩家；1：学生；2：教练；3：机构 */
+    id_selected: 1, /*0：玩家；1：学生；2：教练；3：机构 */
+    show_verification: false,
+
+    // 动画相关
+    hideModal: true,
+
   },
 
   /**
@@ -54,6 +62,103 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  // 选择认证身份
+  selectIdentification: function (e) {
+    var id = e.currentTarget.id;
+    switch (id) {
+      case "student":
+        this.setData({ id_selected: 1 });
+        break;
+      case "coach":
+        this.setData({ id_selected: 2 });
+        break;
+      case "constitution":
+        this.setData({ id_selected: 3 });
+        break;
+      case "player":
+        this.setData({ id_selected: 0 });
+        break;
+    }
+
+  },
+
+  chooseIdentification: function (){
+    console.log("sadas");
+    var that = this;
+    that.setData({
+      hideModal: false
+    })
+    var animation = wx.createAnimation({
+      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    });
+    this.animation = animation;
+    setTimeout(function () {
+      that.fadeIn();//调用显示动画
+    }, 200);
+    this.setData({ show_verification: true });
+
+  },
+
+  cancelVerification: function () {
+    var that = this;
+    var animation = wx.createAnimation({
+      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      timingFunction: 'ease',//动画的效果 默认值是linear
+    });
+    this.animation = animation;
+    that.fadeDown();//调用隐藏动画   
+    setTimeout(function () {
+      that.setData({
+        hideModal: true
+      });
+    }, 720)//先执行下滑动画，再隐藏模块
+    this.setData({ show_verification: false });
+  },
+
+  //动画集
+  fadeIn: function () {
+    console.log("log")
+    this.animation.translateY(0).step();
+    this.setData({
+      animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
+    })
+  },
+  fadeDown: function () {
+    this.animation.translateY("100%").step();
+    this.setData({
+      animationData: this.animation.export(),
+    })
+  },
+
+  // 前往身份认证
+  goToVerification: function () {
+    this.setData({ hideModal: true });
+    this.setData({ show_verification: false });
+    switch (this.data.id_selected) {
+      case 0: /* 玩家 */
+        wx.navigateTo({
+          url: '/pages/orgmenu/verification/person',
+        });
+        break;
+      case 1: /* 学生 */
+        wx.navigateTo({
+          url: '/pages/orgmenu/verification/person',
+        });
+        break;
+      case 2: /* 教练 */
+        wx.navigateTo({
+          url: '/pages/orgmenu/verification/person',
+        });
+        break;
+      case 3: /* 机构 */
+        wx.navigateTo({
+          url: '/pages/orgmenu/verification/constitution',
+        });
+        break;
+    }
   },
 
   /**

@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarBackgroundColor":"#4c87fd",
+  "navigationBarTitleText":"冠军国跳",
+  "navigationBarTextStyle":"white"
+
 }
