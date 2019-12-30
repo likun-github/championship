@@ -34,6 +34,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    ServerRoot: "https://www.yundingu.cn/checkerserver/",
   }
 })
