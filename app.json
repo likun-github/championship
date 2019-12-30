@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/study/study",
+    "pages/chess/chess",
+    "pages/game/game",
+    "pages/competition/competition",
+    "pages/mine/mine"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#52a9ff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "/static/menu/cstudy.png",
+        "iconPath": "/static/menu/study.png",
+        "pagePath": "pages/study/study",
+        "text": "学习"
+      },
+      {
+        "selectedIconPath": "/static/menu/cchess.png",
+        "iconPath": "/static/menu/chess.png",
+        "pagePath": "pages/chess/chess",
+        "text": "棋谱"
+      },
+      {
+        "selectedIconPath": "/static/menu/ccompetition.png",
+        "iconPath": "/static/menu/competition.png",
+        "pagePath": "pages/competition/competition",
+        "text": "对战"
+      },
+      {
+        "selectedIconPath": "/static/menu/cgame.png",
+        "iconPath": "/static/menu/game.png",
+        "pagePath": "pages/game/game",
+        "text": "比赛"
+      },
+      {
+        "selectedIconPath": "/static/menu/cmine.png",
+        "iconPath": "/static/menu/mine.png",
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
