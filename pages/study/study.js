@@ -1,18 +1,47 @@
-// pages/study/study.js
+// pages/learn/learnindex.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    serverRoot: "",
+    innerRoute: "begin",
+    playVideo: false
+  },
+  redict: function (e) {
+    var app = getApp();
+    app.redict(e);
 
+  },
+  RuleDetail: function(){
+    
+    wx.navigateTo({
+      url: '/pages/learncontent/learncontent',
+    })
+  },
+  returnToVideoList: function(){
+    this.setData({ playVideo: false });
+
+  },
+
+  ChangeRoute: function(e){
+    this.setData({
+      innerRoute: e.currentTarget.dataset.route
+    });
+  },
+  
+  SeeVideo: function(){
+    this.setData({playVideo: true});
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 设置服务器路径
+    var serverRoot = getApp().globalData.ServerRoot;
+    this.setData({ serverRoot: serverRoot });
   },
 
   /**
