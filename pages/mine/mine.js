@@ -85,13 +85,12 @@ Page({
   },
 
   chooseIdentification: function (){
-    console.log("sadas");
     var that = this;
     that.setData({
       hideModal: false
     })
     var animation = wx.createAnimation({
-      duration: 600,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      duration: 400,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
       timingFunction: 'ease',//动画的效果 默认值是linear
     });
     this.animation = animation;
@@ -105,7 +104,7 @@ Page({
   cancelVerification: function () {
     var that = this;
     var animation = wx.createAnimation({
-      duration: 800,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
+      duration: 500,//动画的持续时间 默认400ms   数值越大，动画越慢   数值越小，动画越快
       timingFunction: 'ease',//动画的效果 默认值是linear
     });
     this.animation = animation;
@@ -114,13 +113,12 @@ Page({
       that.setData({
         hideModal: true
       });
-    }, 720)//先执行下滑动画，再隐藏模块
+    }, 600)//先执行下滑动画，再隐藏模块
     this.setData({ show_verification: false });
   },
 
   //动画集
   fadeIn: function () {
-    console.log("log")
     this.animation.translateY(0).step();
     this.setData({
       animationData: this.animation.export()//动画实例的export方法导出动画数据传递给组件的animation属性
@@ -140,27 +138,32 @@ Page({
     switch (this.data.id_selected) {
       case 0: /* 玩家 */
         wx.navigateTo({
-          url: '/pages/orgmenu/verification/person',
+          url: "/pages/vertification/person/person",
         });
         break;
       case 1: /* 学生 */
         wx.navigateTo({
-          url: '/pages/orgmenu/verification/person',
+          url: "/pages/vertification/person/person",
         });
         break;
       case 2: /* 教练 */
         wx.navigateTo({
-          url: '/pages/orgmenu/verification/person',
+          url: "/pages/vertification/person/person",
         });
         break;
       case 3: /* 机构 */
         wx.navigateTo({
-          url: '/pages/orgmenu/verification/constitution',
+          url: "/pages/vertification/constitution/constitution",
         });
         break;
     }
   },
-
+  // 前往 我的收藏
+  goToCollection: function () {
+    wx.navigateTo({
+      url: "/pages/mycollection/mycollection",
+    });
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

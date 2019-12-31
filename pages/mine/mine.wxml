@@ -20,7 +20,6 @@
   <text class="goto">></text>
 </view>
 
-
 <view class="gray-margin" style="height: 5rpx;"></view>
 
 
@@ -39,3 +38,53 @@
 </view>
 
 <view class="gray-margin" style="height: 2.5rpx;"></view>
+
+
+<view wx:if="{{show_verification==true}}" class='mask-view' catchtouchmove='ture'>
+</view>
+
+
+
+
+<view class="bottomPopUp" hidden="{{hideModal}}" animation="{{animationData}}">
+  <view class="chooseTopic">
+    <image mode="widthFix" src="/static/mine/×.svg" bindtap="cancelVerification"></image>
+    <text>请选择认证身份</text>
+    <image mode="widthFix" src="/static/mine/叉空白.svg"></image>
+  </view>
+  <view class="identifications">
+    <view id="student" class="identification" bindtap="selectIdentification">
+      <image class="tick" mode="widthFix" src="/static/mine/勾空白.svg"></image>
+      <text wx:if="{{id_selected==1}}" class="idBlack">学员</text>
+      <text wx:else class="idGrey">学员</text>
+      <image wx:if="{{id_selected==1}}" class="tick" mode="widthFix" src="/static/mine/勾上下留白.svg"></image>
+      <image wx:else class="tick" mode="widthFix" src="/static/mine/勾空白.svg"></image>   
+    </view> 
+    <view class="gray-margin" style="height: 3rpx;"></view>  
+  </view>
+  <view class="identifications">
+    <view id="coach" class="identification" bindtap="selectIdentification">
+      <image class="tick" mode="widthFix" src="/static/mine/勾空白.svg"></image>
+      <text wx:if="{{id_selected==2}}" class="idBlack">教练</text>
+      <text wx:else class="idGrey">教练</text>
+      <image wx:if="{{id_selected==2}}" class="tick" mode="widthFix" src="/static/mine/勾上下留白.svg"></image>
+      <image wx:else class="tick" mode="widthFix" src="/static/mine/勾空白.svg"></image>  
+    </view> 
+    <view class="gray-margin" style="height: 3rpx;"></view>  
+  </view>
+  <view class="identifications">
+    <view id="constitution" class="identification" bindtap="selectIdentification">
+      <image class="tick" mode="widthFix" src="/static/mine/勾空白.svg"></image>
+      <text wx:if="{{id_selected==3}}" class="idBlack">机构</text>
+      <text wx:else class="idGrey">机构</text>
+      <image wx:if="{{id_selected==3}}" class="tick" mode="widthFix" src="/static/mine/勾上下留白.svg"></image>
+      <image wx:else class="tick" mode="widthFix" src="/static/mine/勾空白.svg"></image>  
+    </view> 
+    <view class="gray-margin" style="height: 3rpx;"></view>  
+  </view>
+  <view style="padding:50rpx;">
+    <view class="startIdentification" bindtap="goToVerification">
+      <text>开始认证</text>
+    </view>
+  </view> 
+</view>
